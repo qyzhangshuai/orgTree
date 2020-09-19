@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "module": "esNext",
+    "target": "es2017",
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "allowJs": true,
+    "baseUrl": "./",
+    "declaration": true,
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/style/*",
+    "src/**/*.less",
+    "src/**/*.css",
+    "es",
+    "lib"
+  ],
+  "include": [
+    "src"
+  ],
+  "paths": {
+    "@src/*": [
+      "src/*",
+    ],
+    "@utils/*": [
+      "src/utils/*",
+    ],
+    "@utils": [
+      "src/utils",
+    ],
+  }
+}

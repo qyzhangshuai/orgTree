@@ -1,0 +1,52 @@
+{
+  "name": "r-org-tree",
+  "version": "1.0.2",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "compile": "cross-env NODE_ENV=production rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "org-tree"
+  ],
+  "description": "org-tree",
+  "author": "zs",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/react": "^16.9.49",
+    "autoprefixer": "9.8.6",
+    "cross-env": "^7.0.2",
+    "cssnano": "^4.1.10",
+    "less": "^3.12.2",
+    "postcss-nested": "4.2.3",
+    "postcss-preset-env": "^6.7.0",
+    "rollup": "^2.27.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.27.2",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "files": [
+    "lib/**/*",
+    "es/**/*"
+  ],
+  "directories": {
+    "lib": "lib"
+  }
+}
