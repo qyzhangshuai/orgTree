@@ -12,20 +12,21 @@ const defaultNode = {
     children: 'children'
 }
 
-interface NodeProps {
+export interface NodeProps {
     id?: string,
     label?: string,
     expand?: string,
     children?: string
 }
-interface DataProps {
+export interface DataProps {
     id?: string | number
     label?: React.ReactNode
     conditionList?: React.ReactNode
+    children?: DataProps[]
     [props: string]: any
 }
 
-interface OrgTreeProps {
+export interface OrgTreeProps {
     data: DataProps
     labelWidth?: string | number
     horizontal?: boolean
@@ -34,12 +35,13 @@ interface OrgTreeProps {
     activeId: string | number
     node?: NodeProps
     labelClassName?: string
-    onClick?: (e: React.MouseEventHandler<HTMLElement>, value: any) => void
+    conditionClassName?: string
+    onClick?: (e: React.MouseEventHandler<HTMLElement>, data: any) => void
     renderContent?: (data: any) => void
 }
 
 const OrgTree: React.FC<OrgTreeProps> = (props) => {
-
+    const forceUpdate = useForceUpdate()
     const {
         horizontal,
         expandAll,
@@ -61,10 +63,10 @@ const OrgTree: React.FC<OrgTreeProps> = (props) => {
             if (!nodeData.expand && nodeData.children) {
                 collapse(nodeData.children);
             }
-            useForceUpdate()
+            forceUpdate()
         } else {
             nodeData.expand = true;
-            useForceUpdate()
+            forceUpdate()
         }
     }
 
@@ -91,7 +93,7 @@ const OrgTree: React.FC<OrgTreeProps> = (props) => {
                 toggleExpand(data.children, val);
             }
         }
-        useForceUpdate()
+        forceUpdate()
     }
 
     return (

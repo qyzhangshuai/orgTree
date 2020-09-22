@@ -35,7 +35,7 @@ export const renderBtn = (data, prop) => {
     const { onExpand } = prop;
     const node = prop.node;
 
-    let cls = ['org-tree-node-btn'];
+    const cls = ['org-tree-node-btn'];
 
     if (data[node.expand]) {
         cls.push('expanded');
@@ -60,7 +60,7 @@ export const renderLabel = (data, prop) => {
 
     const childNodes = [];
     if (typeof renderContent === 'function') {
-        let vnode = renderContent(data);
+        const vnode = renderContent(data);
         vnode && childNodes.push(vnode);
     } else {
         childNodes.push(label);
@@ -70,11 +70,14 @@ export const renderLabel = (data, prop) => {
         childNodes.push(renderBtn(data, prop));
     }
 
-    const cls = ['org-tree-node-label-inner'];
-
-    let { labelWidth, labelClassName } = prop;
+    const cls = ['org-tree-node-label-inner', 'org-tree-node-cursor'];
+    const dls = ['org-tree-node-label-inner', 'org-tree-node-condition'];
+    const { labelWidth, labelClassName, conditionClassName, activeId } = prop;
 
     labelClassName && cls.push(labelClassName);
+    activeId === data[node.id] ? cls.push('org-tree-node-active') : null
+    conditionClassName && dls.push(conditionClassName)
+
     return (
         <div
             key={`label_${data[node.id]}`}
@@ -84,12 +87,12 @@ export const renderLabel = (data, prop) => {
                 data.conditionList ? (
                     <div
                         key={`label_inner_condition_${data[node.id]}`}
-                        className={cls.join(' ').concat(' org-tree-node-condition')}
+                        className={dls.join(' ')}
                     >{data.conditionList}</div>) : null
             }
             <div
                 key={`label_inner_${data[node.id]}`}
-                className={cls.join(' ').concat(' org-tree-node-cursor').concat(prop.activeId === data[node.id] ? ' org-tree-node-active' : '')}
+                className={cls.join(' ')}
                 style={{ width: labelWidth ? parseInt(labelWidth) + 'px' : 'auto' }}
                 onClick={(e) => typeof onClick === 'function' && onClick(e, data)}
             >

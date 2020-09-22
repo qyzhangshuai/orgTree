@@ -8,6 +8,7 @@ react的组织树组件
 ```js
 import React, { useState } from 'react'
 import { OrgTree } from 'r-org-tree'
+import { DataProps } from 'r-org-tree/es/components/OrgTree'
 
 const horizontal = false; // true：横向  false：纵向
 const collapsable = true; // true：可折叠 false：不可折叠 
@@ -22,7 +23,7 @@ const Demo: React.FC<DemoProps> = ({
 }) => {
 	const [value, setValue] = useState(undefined)
 
-	const data = {
+	const data: DataProps = {
 		id: 0,
 		label: '一级',
 		children: [
@@ -57,7 +58,6 @@ const Demo: React.FC<DemoProps> = ({
 	return (
 		<OrgTree
 			data={data}
-			// labelClassName
 			activeId={value}
 			horizontal={horizontal}
 			collapsable={collapsable}
@@ -68,4 +68,22 @@ const Demo: React.FC<DemoProps> = ({
 }
 
 ```
+
+
+
+# 属性
+
+| 参数               | 说明                                                         | 类型                                                         | 默认值                                                       | 是否必填 |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
+| data               | 数据源                                                       | json                                                         | -                                                            | 是       |
+| labelWidth         | label项宽度                                                  | string \| number                                             | -                                                            | 否       |
+| horizontal         | 是否水平                                                     | boolean                                                      | false                                                        | 否       |
+| collapsable        | 是否可折叠                                                   | boolean                                                      | false                                                        | 否       |
+| expandAll          | 是否全部展开                                                 | boolean                                                      | false                                                        | 否       |
+| activeId           | 选中的id                                                     | string \| number                                             | -                                                            | 否       |
+| node               | data中的 id label expand      children的字段，可以将数据源的字段进行替换 | object                                                       | {id: 'id',label: 'label',expand: 'expand',children: 'children'} | 否       |
+| labelClassName     | label自定义类名                                              | string                                                       | -                                                            | 否       |
+| conditionClassName | conditionList自定义类名                                      | string                                                       | -                                                            | 否       |
+| onClick            | 点击label函数                                                | (e: React.MouseEventHandler<HTMLElement>, data: any) => void | -                                                            | 否       |
+| renderContent      | 处理label的数据，渲染label函数                               | (data: any) => void                                          | -                                                            | 否       |
 
