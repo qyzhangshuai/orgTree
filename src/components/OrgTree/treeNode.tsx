@@ -72,7 +72,7 @@ export const renderLabel = (data, prop) => {
 
     const cls = ['org-tree-node-label-inner', 'org-tree-node-cursor'];
     const dls = ['org-tree-node-label-inner', 'org-tree-node-condition'];
-    const { labelWidth, labelClassName, conditionClassName, activeId } = prop;
+    const { labelWidth, labelClassName, conditionClassName, activeId, onConditionClick } = prop;
 
     labelClassName && cls.push(labelClassName);
     activeId === data[node.id] ? cls.push('org-tree-node-active') : null
@@ -88,6 +88,7 @@ export const renderLabel = (data, prop) => {
                     <div
                         key={`label_inner_condition_${data[node.id]}`}
                         className={dls.join(' ')}
+                        onClick={(e) => typeof onConditionClick === 'function' && onConditionClick(e, data)}
                     >{data.conditionList}</div>) : null
             }
             <div

@@ -85,5 +85,6 @@ const Demo: React.FC<DemoProps> = ({
 | labelClassName     | label自定义类名                                              | string                                                       | -                                                            | 否       |
 | conditionClassName | conditionList自定义类名                                      | string                                                       | -                                                            | 否       |
 | onClick            | 点击label函数                                                | (e: React.MouseEventHandler<HTMLElement>, data: any) => void | -                                                            | 否       |
+| onConditionClick   | 点击conditionList时触发函数                                  | (e: React.MouseEventHandler<HTMLElement>, data: any) => void | -                                                            |          |
 | renderContent      | 处理label的数据，渲染label函数                               | (data: any) => void                                          | -                                                            | 否       |
 

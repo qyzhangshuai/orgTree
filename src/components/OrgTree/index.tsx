@@ -37,6 +37,7 @@ export interface OrgTreeProps {
     labelClassName?: string
     conditionClassName?: string
     onClick?: (e: React.MouseEventHandler<HTMLElement>, data: any) => void
+    onConditionClick?: (e: React.MouseEventHandler<HTMLElement>, data: any) => void
     renderContent?: (data: any) => void
 }
 
@@ -49,6 +50,7 @@ const OrgTree: React.FC<OrgTreeProps> = (props) => {
         node,
         data,
         onClick,
+        onConditionClick,
         renderContent = data => data.label,
         ...restProps
     } = useMemo(() => props, [props])
@@ -105,6 +107,7 @@ const OrgTree: React.FC<OrgTreeProps> = (props) => {
                     node={{ ...defaultNode, ...node }}
                     onExpand={(e, nodeData) => handleExpand(e, nodeData)}
                     onClick={(e, nodeData) => onClick && onClick(e, nodeData)}
+                    onConditionClick={(e, nodeData) => onConditionClick && onConditionClick(e, nodeData)}
                     renderContent={renderContent}
                     {...restProps}
                 />
