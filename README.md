@@ -21,7 +21,7 @@ interface DemoProps {
 const Demo: React.FC<DemoProps> = ({
 
 }) => {
-	const [value, setValue] = useState(undefined)
+	const [value, setValue] = useState()
 
 	const data: DataProps = {
 		id: 0,
