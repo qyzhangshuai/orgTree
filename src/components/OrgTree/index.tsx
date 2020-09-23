@@ -32,7 +32,7 @@ export interface OrgTreeProps {
     horizontal?: boolean
     collapsable?: boolean
     expandAll?: boolean
-    activeId: string | number
+    activeId?: string | number
     node?: NodeProps
     labelClassName?: string
     conditionClassName?: string
