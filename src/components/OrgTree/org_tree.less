@@ -24,7 +24,7 @@
 .org-tree-node-children {
   position: relative;
   margin: 0 auto;
-  padding: 0;
+  padding: 20px 5px 0 5px;
   list-style-type: none;
 
   &:before, &:after {
@@ -284,8 +284,8 @@
 
 .org-tree-node-active {
   box-sizing: border-box;
-  background: #F9FCFF;
-  box-shadow: 0 0 2px 2px @primary-color;
+  background:fade(@primary-color,10);
+  box-shadow: 0 0 2px 0 @primary-color!important;
 }
 
 .org-tree-node-cursor {

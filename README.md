@@ -11,7 +11,7 @@ import { OrgTree } from 'r-org-tree'
 import { DataProps } from 'r-org-tree/es/components/OrgTree'
 
 const horizontal = false; // true：横向  false：纵向
-const collapsable = true; // true：可折叠 false：不可折叠 
+const collapsable = false; // true：可折叠 false：不可折叠 
 const expandAll = true; // true: 全部展开 false：全部折叠 
 
 interface DemoProps {
@@ -21,7 +21,7 @@ interface DemoProps {
 const Demo: React.FC<DemoProps> = ({
 
 }) => {
-	const [value, setValue] = useState(undefined)
+	const [value, setValue] = useState()
 
 	const data: DataProps = {
 		id: 0,
